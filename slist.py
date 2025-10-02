@@ -74,6 +74,7 @@ class slist:
         new_node = Node(value)
         curr = self.head
         count = 0
+    
         while curr != None:
             if count == ind-1:       # stop at node before target position
                 break
@@ -83,6 +84,10 @@ class slist:
             new_node.next = curr.next
             curr.next = new_node
             self.n += 1
+        elif ind==0:
+            new_node.next=self.head
+            self.head=new_node
+            self.n+=1
         else:
             return 'index not found'
 
@@ -95,5 +100,7 @@ L.insert_head(50)
 L.insert_tail(10)        
 L.insert_tail(1)        
 L.insert_at(2, 70)      
+L.insert_at(0,80)
+L.insert_at(1,90)
 print(L)                 # prints the linked list
 print(L[2])              # prints the element at index 2 (70)
