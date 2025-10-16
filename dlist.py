@@ -35,10 +35,11 @@ class dlist:
 
     def traverse(self):
         temp = self.head                   # Start traversal from the head node
+        print('[',end="")
         while temp:                        # Continue until temp becomes None (end of list)
             print(temp.data, end=" ")      # Print data of the current node
             temp = temp.next               # Move to the next node
-        print()                            # Print a newline at the end
+        print(']')                            # Print a newline at the end
 
     def isempty(self):
         return self.head is None           # Returns True if there are no nodes, else False
