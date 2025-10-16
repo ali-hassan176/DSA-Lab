@@ -119,14 +119,14 @@ class dlist:
 
 # Testing
 
-L = dlist()                               
+L = dlist()
 
 L.insert_head(20)
 L.insert_head(30)
 L.insert_head(40)
-L.insert_tail(10)                       
+L.insert_tail(10)
 L.insert_at(2, 50)
-L.insert_at(7, 60)                       
+L.insert_at(7, 60)
 
 L.traverse()
 print(L.isempty())
