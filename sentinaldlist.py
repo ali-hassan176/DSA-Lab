@@ -9,7 +9,7 @@ class Node:
         self.prev = None
 
 # Doubly Linked List class with Sentinel Nodes
-class DList:
+class Dlist:
     def __init__(self):
         # Create two sentinel (dummy) nodes: head and tail
         # They don't store real data — just structure
@@ -132,9 +132,9 @@ class DList:
 
         # Traverse until we reach tail sentinel
         while temp != self.tail:
-            print(temp.data, end=" ")
+            print(temp.data,'<->', end=" ")
             temp = temp.next
-        print()  # new line
+        #print()  # new line
 
     def reverse_traverse(self):
         # Start from last real node (before tail sentinel)
@@ -150,7 +150,7 @@ class DList:
         # Check for valid index
         if index < 0 or index >= self.n:
             raise IndexError("Index out of range")
-
+        
         # Traverse from head
         temp = self.head.next
         for _ in range(index):
@@ -163,33 +163,50 @@ class DList:
 
     def isempty(self):
         return self.n == 0
-
+    def search(self,item):
+        temp=self.head.next
+        c=0
+        while temp!=self.tail:
+            if temp.data==item:
+                return (f'{item} is present in index {c}')
+            else:
+                temp = temp.next
+                c+=1
+        return False
 
 # Testing
-L = DList()
+L = Dlist()
+
 L.insert_head(20)
 L.insert_head(30)
+L.insert_head(40)
 L.insert_tail(10)
-L.insert_at(1, 40)
+L.insert_head(20)
+L.insert_head(30)
+L.insert_head(40)
+L.insert_at(2, 50)
+print(L.traverse())
 
-print("List (forward): ", end="")
-L.traverse()
+#print(L.search(50))
+#4.1 Reverse_dlist
+def reverse_dl(l):
+    r_l = Dlist()
+    for i in range(len(l)):
+        a = l.__getitem__(i)
+        r_l.insert_head(a)
+    return (r_l)
 
-print("List (reverse): ", end="")
-L.reverse_traverse()
+#r_l = reverse_dl(L)
+#print(r_l.traverse())
 
-print("Length:", len(L))
-print("Is empty?", L.isempty())
-print("Element at index 2:", L[2])
+#4.2 Remove duplicate
+def remove_duplicate(l):
+    u_l=Dlist()
+    for i in range(len(L)):
+        a=l.__getitem__(i)
+        if u_l.search(a)==False:
+            u_l.insert_tail(a)
+    return u_l
 
-L.delete_first()
-print("After deleting first:", end=" ")
-L.traverse()
-
-L.delete_last()
-print("After deleting last:", end=" ")
-L.traverse()
-
-L.delete_at(1)
-print("After deleting index 1:", end=" ")
-L.traverse()
+print((remove_duplicate(L)).traverse())
+    

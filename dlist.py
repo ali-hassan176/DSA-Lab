@@ -44,7 +44,7 @@ class dlist:
     def isempty(self):
         return self.head is None           # Returns True if there are no nodes, else False
 
-    def len(self):
+    def __len__(self):
         return self.n                      # Simply return the counter of nodes
 
     def __getitem__(self, index):
@@ -127,14 +127,14 @@ L.insert_head(40)
 L.insert_tail(10)
 L.insert_at(2, 50)
 L.insert_at(7, 60)
+print(L.traverse())
+def reverse_dl(l):
+    r_l = dlist()
+    for i in range(len(l)):
+        a = l.__getitem__(i)
+        r_l.insert_head(a)
+    return (r_l)
 
-L.traverse()
-print(L.isempty())
-print(L.len())
-print(L[2])
-L.delete_first()
-L.delete_at(3)
-L.traverse()
-L.delete_last()
-L.traverse()
+r_l = reverse_dl(L)
+print(r_l.traverse())
 

@@ -102,5 +102,44 @@ L.insert_tail(1)
 L.insert_at(2, 70)      
 L.insert_at(0,80)
 L.insert_at(1,90)
+L.insert_head(20)
+L.insert_head(70)
+L.insert_head(50)
+L.insert_head(70)
+L.insert_head(10)
+
 print(L)                 # prints the linked list
-print(L[2])              # prints the element at index 2 (70)
+#3.1 count occurance
+def count_occurance(l,item):
+    c=0
+    for i in range(len(l)):
+        a=l.__getitem__(i)
+        if a==item:
+            c+=1
+    return (f'No of occurance of {item} is {c}')
+
+#print(count_occurance(L,9))
+
+#3.2 Reverse the list
+def reverse_list(l):
+    r_l = slist()
+    for i in range(len(l)):
+        a=l.__getitem__(i)
+        r_l.insert_head(a)
+    return(r_l)
+
+#print(reverse_list(L))
+l1=slist()
+l2=slist()
+#5.1 Merge list
+l1.insert_head(5)
+l1.insert_head(3)
+l1.insert_head(1)
+l2.insert_head(6)
+l2.insert_head(4)
+l2.insert_head(2)
+print(l1)
+print(l2)
+def merge_list(l1,l2):
+    m_l=slist()
+    
